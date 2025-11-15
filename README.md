@@ -45,52 +45,52 @@ Hasi Lab Digital dirancang untuk mengelola siklus hidup pemeriksaan laboratorium
 - Otomatis menyebarkan notifikasi ke pasien dan admin  
 
 ### Admin 🧭
-- Kelola pengguna (senarai pasien/dokter/petugas lab)  
-- Statistik keseluruhan (total laporan, status, notifikasi)  
-- Notifikasi internal & audit aktivitas
+- Kelola pengguna (pasiens, dokter, petugas lab, admin) dengan tabel searchable, filter per role, dan resource controller interaktif  
+- Statistik global (total laporan, capaian, notifikasi) ditampilkan dalam cards dengan grafik sederhana  
+- Fitur audit log menelusuri aktivitas CRUD penting, serta notifikasi internal untuk update sistem
 
 ## Arsitektur & Diagram
 
-- **ERD**: `diagrams/README.md` menyediakan diagram tabel `users`, `lab_results`, `notifications`  
-- **DFD Level 0**: alur autentikasi → pemrosesan hasil → notifikasi → dashboard  
-- **Use Case Diagram**: menggambarkan aktor utama dan relasi fungsional  
-- Render Mermaid langsung di GitHub atau gunakan plugin Mermaid di VSCode
+- **ERD**: `diagrams/README.md` menjabarkan relasi `users`, `lab_results`, dan `notifications` lengkap dengan PK/FK dan field utama  
+- **DFD Level 0**: memperlihatkan alur autentikasi → pemrosesan hasil → notifikasi → dashboard/pasien  
+- **Use Case Diagram**: menggambarkan aktor (pasien, lab, dokter, admin) dan alur fungsional utama  
+- Render diagram Mermaid langsung di GitHub atau gunakan plugin Mermaid VSCode/Obsidian bila perlu visual statis
 
 ## Stack Teknologi
 
 | Layer | Teknologi |
 | --- | --- |
-| Backend | Laravel 12, PHP 8.2 |
+| Backend | Laravel 12 dengan Eloquent, Laravel Breeze untuk auth |
 | Frontend | Tailwind CSS 3, Alpine.js 3, Vite 7 |
-| Database | MySQL 8 / MariaDB 10.6 |
-| Autentikasi | Laravel Breeze |
-| Queue | Database + Redis (opsional) |
-| Export | Laravel Excel, DomPDF |
-| Integrasi | Notification channel (email), file storage |
+| Database | MySQL 8 / MariaDB 10.6 (dengan migration + seed) |
+| Otentikasi | Laravel Breeze + middleware role-based |
+| Queue | Database driver (Redis optional) untuk job notifikasi/file |
+| Export | Laravel Excel untuk laporan, DomPDF untuk PDF hasil |
+| Integrasi | Notification channel (email/log), storage lokal/s3 |
 
 ## Persiapan
 
-1. Clone repo dan masuk ke direktori  
-2. Copy environment: `cp .env.example .env`  
-3. Install dependencies:
+1. Clone repo dan masuk ke direktori: `git clone <url> && cd hasi-labdigital`
+2. Duplikat environment: `cp .env.example .env`
+3. Pasang dependencies:
    ```
    composer install
    npm install
    npm run build
    ```
-4. Generate key & migrasi:
+4. Generate key dan migrasi:
    ```
    php artisan key:generate
    php artisan migrate --seed
    ```
-5. Jalankan server:
+5. Jalankan aplikasi:
    ```
    php artisan serve
    ```
 
 ## Akun Default (Seeder)
 
-Silakan login dengan akun seed berikut:
+Silakan login dengan akun seed berikut untuk coba role berbeda:
 
 | Role | Email | Password |
 | --- | --- | --- |
@@ -108,7 +108,7 @@ php artisan test
 vendor/bin/pint
 ```
 
-**Queue (opsional untuk notifikasi)**
+**Queue & background**
 
 ```
 php artisan queue:work
@@ -116,9 +116,9 @@ php artisan queue:work
 
 ## Dokumentasi
 
-- `docs/` (jika ada) berisi screenshot, diagram lanjutan, panduan integrasi  
-- `diagrams/README.md` menyimpan Mermaid diagram arsitektur  
-- Tambah catatan di `app_summary.md` untuk coverage tambahan
+- `docs/` (kalau ada) menyimpan screenshot, panduan integrasi, dan diagram tambahan  
+- `diagrams/README.md` berisi Mermaid ERD, DFD, dan Use Case lengkap dengan referensi PNG  
+- Catat temuan di `app_summary.md` agar coverage dokumentasi terus diperbarui
 
 ## Kontribusi
 
