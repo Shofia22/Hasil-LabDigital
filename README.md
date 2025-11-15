@@ -1,18 +1,21 @@
 # Hasi Lab Digital
 
+![Build](https://img.shields.io/badge/build-passing-brightgreen) ![Laravel](https://img.shields.io/badge/framework-Laravel-red) ![PHP](https://img.shields.io/badge/php-8.2-blue) ![License](https://img.shields.io/badge/license-MIT-yellow) ![Database](https://img.shields.io/badge/database-MySQL-lightgrey)
+
 **Laravel · PHP · MySQL · Tailwind · Alpine.js · MIT License**
 
 Hasi Lab Digital adalah platform manajemen hasil laboratorium yang fokus pada alur pasien, laboratorium, dokter, dan admin. Dibangun dengan Laravel 12, menyajikan antarmuka modern dengan Tailwind CSS & Alpine.js, serta memastikan data klinis terekam dengan baik dalam MySQL.
 
-## Navigasi Cepat
+## Navigasi Cepat 📚
 
-- **Fitur utama**: daftar pemeriksaan, status lab, notifikasi, dashboard statistik  
-- **Instalasi**: `composer install` → `npm install` → copy `.env.example` → migrasi & seed  
-- **Dokumentasi**: penjelasan ERD, DFD, Alur Notifikasi, Integrasi role-based  
-- **Demo**: gunakan akun seeded pasien/dokter/lab/admin  
-- **Kontribusi**: fork → branch fitur → pull request
+- **✨ Fitur utama**: daftar pemeriksaan, status lab, notifikasi, dashboard statistik  
+- **🚀 Instalasi**: `composer install` → `npm install` → copy `.env.example` → migrasi & seed  
+- **📘 Dokumentasi**: penjelasan ERD, DFD, Alur Notifikasi, Integrasi role-based  
+- **🎬 Demo**: gunakan akun seeded pasien/dokter/lab/admin  
+- **🤝 Kontribusi**: fork → branch fitur → pull request  
+- **🎨 Ikon & Layout**: antarmuka dengan badge, tombol, dan kartu responsif bergradasi.
 
-## Tentang Proyek
+## Tentang Proyek 🧬
 
 Hasi Lab Digital dirancang untuk mengelola siklus hidup pemeriksaan laboratorium di rumah sakit/klinik:
 
@@ -26,22 +29,22 @@ Hasi Lab Digital dirancang untuk mengelola siklus hidup pemeriksaan laboratorium
 
 ## Fitur Utama
 
-### Pengalaman Pasien
+### Pengalaman Pasien 🩺
 - Melihat daftar hasil lab  
 - Mengunduh file PDF/gambar  
 - Menerima notifikasi status terbaru  
 
-### Laboratorium
+### Laboratorium 🧪
 - Input hasil lengkap (jenis tes, dokter, pasien)  
 - Unggah file pendukung (PDF/Gambar)  
 - Edit & review sebelum disetujui dokter  
 
-### Dokter
+### Dokter 🩹
 - Meninjau hasil yang sudah direkam  
 - Mengubah status menjadi `reviewed` atau `completed`  
 - Otomatis menyebarkan notifikasi ke pasien dan admin  
 
-### Admin
+### Admin 🧭
 - Kelola pengguna (senarai pasien/dokter/petugas lab)  
 - Statistik keseluruhan (total laporan, status, notifikasi)  
 - Notifikasi internal & audit aktivitas
