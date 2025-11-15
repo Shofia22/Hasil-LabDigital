@@ -5,21 +5,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'TeleHealth') }} — Login</title>
+        <title>TeleHealth — Login</title>
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="antialiased bg-gradient-to-br from-emerald-50 via-white to-blue-50 text-gray-900">
         <div class="min-h-screen grid grid-cols-1 lg:grid-cols-2">
             <!-- Left: Modern Intro with gradient -->
-            <div class="hidden lg:flex flex-col justify-center px-14 py-12 bg-gradient-to-br from-emerald-600 via-teal-600 to-blue-600 text-white">
-                <div class="max-w-md">
-                    <div class="flex items-center justify-center w-28 h-28 rounded-full bg-white/20 backdrop-blur-sm mx-0 mb-6">
-                        <svg viewBox="0 0 24 24" class="w-14 h-14 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M3 12h3l2-5 4 10 2-5h5" />
-                        </svg>
+            <div class="hidden lg:flex flex-1 items-center justify-center px-14 py-12 bg-gradient-to-br from-emerald-600 via-teal-600 to-blue-600 text-white">
+                <div class="w-full max-w-lg text-center">
+                    <div class="flex items-center justify-center">
+                        <div class="flex h-28 w-28 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm mb-6">
+                            <svg viewBox="0 0 24 24" class="w-14 h-14 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 12h3l2-5 4 10 2-5h5" />
+                            </svg>
+                        </div>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">Digital Laboratory Report System</h3>
+                    <h3 class="text-3xl font-bold mb-4">Digital Laboratory Report System</h3>
                     <p class="text-xl leading-relaxed mb-8">
                         Secure access to laboratory results for healthcare providers and patients
                     </p>
@@ -55,7 +57,7 @@
                                 <path d="M3 12h3l2-5 4 10 2-5h5" />
                             </svg>
                         </div>
-                        <h1 class="mt-4 text-2xl font-bold text-gray-800">{{ config('app.name','TeleHealth') }}</h1>
+                        <h1 class="mt-4 text-2xl font-bold text-gray-800">TeleHealth</h1>
                         <p class="text-gray-600 mt-1">Digital Laboratory Report System</p>
                     </div>
 
@@ -167,4 +169,3 @@
         <!-- Clean page: no extra scripts needed -->
     </body>
  </html>
-

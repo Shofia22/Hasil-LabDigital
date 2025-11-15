@@ -1,59 +1,129 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Hasi Lab Digital
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**Laravel · PHP · MySQL · Tailwind · Alpine.js · MIT License**
 
-## About Laravel
+Hasi Lab Digital adalah platform manajemen hasil laboratorium yang fokus pada alur pasien, laboratorium, dokter, dan admin. Dibangun dengan Laravel 12, menyajikan antarmuka modern dengan Tailwind CSS & Alpine.js, serta memastikan data klinis terekam dengan baik dalam MySQL.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Navigasi Cepat
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **Fitur utama**: daftar pemeriksaan, status lab, notifikasi, dashboard statistik  
+- **Instalasi**: `composer install` → `npm install` → copy `.env.example` → migrasi & seed  
+- **Dokumentasi**: penjelasan ERD, DFD, Alur Notifikasi, Integrasi role-based  
+- **Demo**: gunakan akun seeded pasien/dokter/lab/admin  
+- **Kontribusi**: fork → branch fitur → pull request
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Tentang Proyek
 
-## Learning Laravel
+Hasi Lab Digital dirancang untuk mengelola siklus hidup pemeriksaan laboratorium di rumah sakit/klinik:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+✅ Tracking hasil lab dari input sampai review dokter  
+✅ Manajemen status (pending, reviewed, completed) dengan badge warna  
+✅ Modul notifikasi (email/web) untuk pasien dan dokter  
+✅ Dashboard kosakata untuk admin/pasien mencakup statistik, aktivitas, dan quick action  
+✅ Role-based access (Pasien, Admin, Dokter, Laboratorium)  
+✅ Form unggah file hasil dengan preview dan download  
+✅ Template email notifikasi (dapat ditambah sebagai job queue)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Fitur Utama
 
-## Laravel Sponsors
+### Pengalaman Pasien
+- Melihat daftar hasil lab  
+- Mengunduh file PDF/gambar  
+- Menerima notifikasi status terbaru  
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Laboratorium
+- Input hasil lengkap (jenis tes, dokter, pasien)  
+- Unggah file pendukung (PDF/Gambar)  
+- Edit & review sebelum disetujui dokter  
 
-### Premium Partners
+### Dokter
+- Meninjau hasil yang sudah direkam  
+- Mengubah status menjadi `reviewed` atau `completed`  
+- Otomatis menyebarkan notifikasi ke pasien dan admin  
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### Admin
+- Kelola pengguna (senarai pasien/dokter/petugas lab)  
+- Statistik keseluruhan (total laporan, status, notifikasi)  
+- Notifikasi internal & audit aktivitas
 
-## Contributing
+## Arsitektur & Diagram
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- **ERD**: `diagrams/README.md` menyediakan diagram tabel `users`, `lab_results`, `notifications`  
+- **DFD Level 0**: alur autentikasi → pemrosesan hasil → notifikasi → dashboard  
+- **Use Case Diagram**: menggambarkan aktor utama dan relasi fungsional  
+- Render Mermaid langsung di GitHub atau gunakan plugin Mermaid di VSCode
 
-## Code of Conduct
+## Stack Teknologi
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+| Layer | Teknologi |
+| --- | --- |
+| Backend | Laravel 12, PHP 8.2 |
+| Frontend | Tailwind CSS 3, Alpine.js 3, Vite 7 |
+| Database | MySQL 8 / MariaDB 10.6 |
+| Autentikasi | Laravel Breeze |
+| Queue | Database + Redis (opsional) |
+| Export | Laravel Excel, DomPDF |
+| Integrasi | Notification channel (email), file storage |
 
-## Security Vulnerabilities
+## Persiapan
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+1. Clone repo dan masuk ke direktori  
+2. Copy environment: `cp .env.example .env`  
+3. Install dependencies:
+   ```
+   composer install
+   npm install
+   npm run build
+   ```
+4. Generate key & migrasi:
+   ```
+   php artisan key:generate
+   php artisan migrate --seed
+   ```
+5. Jalankan server:
+   ```
+   php artisan serve
+   ```
 
-## License
+## Akun Default (Seeder)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Silakan login dengan akun seed berikut:
+
+| Role | Email | Password |
+| --- | --- | --- |
+| Admin | admin@example.com | password |
+| Dokter | doctor@example.com | password |
+| Laboratorium | lab@example.com | password |
+| Pasien | patient@example.com | password |
+
+## Perintah Berguna
+
+**Testing & kualitas kode**
+
+```
+php artisan test
+vendor/bin/pint
+```
+
+**Queue (opsional untuk notifikasi)**
+
+```
+php artisan queue:work
+```
+
+## Dokumentasi
+
+- `docs/` (jika ada) berisi screenshot, diagram lanjutan, panduan integrasi  
+- `diagrams/README.md` menyimpan Mermaid diagram arsitektur  
+- Tambah catatan di `app_summary.md` untuk coverage tambahan
+
+## Kontribusi
+
+1. Fork repo → `git checkout -b feature/kolom-baru`  
+2. Komit perubahan → `git push origin feature/kolom-baru`  
+3. Buka Pull Request  
+4. Pastikan `composer test` dan `vendor/bin/pint` lulus
+
+## Lisensi
+
+MIT License
