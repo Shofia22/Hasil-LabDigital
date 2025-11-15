@@ -130,3 +130,11 @@ php artisan queue:work
 ## Lisensi
 
 MIT License
+
+## Untuk Developer Baru
+
+📖 Baca Development Guide untuk memulai development  
+📊 Lihat Database Schema untuk memahami struktur data  
+🔗 Pelajari BPJS Integration & SATUSEHAT Integration  
+
+Made with ❤️ by Haluluya
